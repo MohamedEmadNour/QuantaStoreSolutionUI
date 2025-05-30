@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>🛠️ SQL Query Executor</h2>
+
+  <textarea [(ngModel)]="query" rows="4" class="query-box" placeholder="Enter your SQL query here..."></textarea>
+
+  <button (click)="executeQuery()" class="run-button">Run Query</button>
+
+  <div class="status">
+    <p><strong>Malicious Query:</strong> {{ result }}</p>
+    <p><strong>Is Safe:</strong> {{ is_Safe }}</p>
+  </div>
+
+  <div *ngIf="qureyresult.length > 0" class="results">
+    <h3>📄 Query Results:</h3>
+    <div *ngFor="let item of qureyresult" class="result-block">
+      <div *ngFor="let key of objectKeys(item)">
+        <span class="key">{{ key }}:</span> <span class="value">{{ item[key] }}</span>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>
